@@ -1,6 +1,7 @@
 achievement_ps.plist
 AlbumCommentPlainTextTip@2x.jpg
 BackToWechat@2x.png
+Bullet.ccbi
 BurstAircraftAircraftBig@2x.png
 BurstAircraftAircraftSmall2@2x.png
 BurstAircraftAvatarMask@2x.png
@@ -80,6 +81,7 @@ loading3@2x.png
 Monaco.ttf
 monster-hd.png
 monster.png
+none.png
 preloadAssetManifest.plist
 ResourceRules.plist
 Default-568h@2x.png

@@ -27,6 +27,7 @@
 #import "GameObject.h"
 #import "Enemy1.h"
 #import "SimpleAudioEngine.h"
+#import "Bullet.h"
 
 #define kCJScrollFilterFactor 0.1
 #define kCJDragonTargetOffset 80
@@ -38,9 +39,36 @@
     if (self = [super init]) {
         
         [self schedule:@selector(gameLogic:) interval:0.6];
+        [self schedule:@selector(shooting) interval:0.2];
     }
     
     return self;
+}
+
+- (void)shooting {
+
+    if (dragon.destroyed) {
+        
+        return;
+    }
+    
+    int actualX = dragon.position.x + dragon.contentSize.width / 2;
+    
+    Bullet *bullet = (Bullet *)[CCBReader nodeGraphFromFile:@"Bullet.ccbi"];
+    bullet.position = ccp(actualX, dragon.position.y + 100);
+    CGSize winSize = [CCDirector sharedDirector].winSize;
+    [self addChild:bullet];
+    
+    CCMoveTo *actionMove = [CCMoveTo actionWithDuration:0.1f position:ccp(actualX, winSize.height)];
+    
+    CCCallBlockN *actionMoveDone = [CCCallBlockN actionWithBlock:^(CCNode *node) {
+        
+        [node removeFromParentAndCleanup:YES];
+    }];
+    
+    [bullet runAction:[CCSequence actions:actionMove, actionMoveDone, nil]];
+    
+    [[SimpleAudioEngine sharedEngine] playEffect:@"bullet.mp3"];
 }
 
 - (void)addMonster {
@@ -133,8 +161,8 @@
             // Check for collisions with dragon
             if (gameObject != dragon)
             {
-                [monsters removeObject:gameObject];
                 [gameObject removeFromParentAndCleanup:YES];
+                [monsters removeObject:gameObject];
             }
         }
     }
@@ -215,8 +243,6 @@
 
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    
-    [[SimpleAudioEngine sharedEngine] playEffect:@"bullet.mp3"];
     
     return;
     

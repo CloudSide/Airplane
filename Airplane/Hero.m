@@ -44,6 +44,11 @@
 
 - (void)update
 {
+    if (self.destroyed) {
+        
+        return;
+    }
+    
     // Calculate new position
     CGPoint oldPosition = self.position;
     

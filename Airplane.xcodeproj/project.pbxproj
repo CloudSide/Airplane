@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		324496B617BBCE3200537045 /* Bullet.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 324496B317BBCE3100537045 /* Bullet.ccbi */; };
+		324496B717BBCE3200537045 /* Bullet.ccb in Resources */ = {isa = PBXBuildFile; fileRef = 324496B417BBCE3200537045 /* Bullet.ccb */; };
+		324496B817BBCE3200537045 /* none.png in Resources */ = {isa = PBXBuildFile; fileRef = 324496B517BBCE3200537045 /* none.png */; };
+		324496BB17BBCE9200537045 /* Bullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 324496BA17BBCE9200537045 /* Bullet.m */; };
 		3F49362B17BB404200CEA623 /* monster-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F49362917BB404200CEA623 /* monster-hd.png */; };
 		3F49362C17BB404200CEA623 /* monster.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F49362A17BB404200CEA623 /* monster.png */; };
 		3F49362F17BB5D4100CEA623 /* Enemy1.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F49362E17BB5D4000CEA623 /* Enemy1.m */; };
@@ -261,6 +265,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		324496B317BBCE3100537045 /* Bullet.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bullet.ccbi; sourceTree = "<group>"; };
+		324496B417BBCE3200537045 /* Bullet.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Bullet.ccb; sourceTree = "<group>"; };
+		324496B517BBCE3200537045 /* none.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = none.png; sourceTree = "<group>"; };
+		324496B917BBCE9200537045 /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bullet.h; sourceTree = "<group>"; };
+		324496BA17BBCE9200537045 /* Bullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bullet.m; sourceTree = "<group>"; };
 		3F49362917BB404200CEA623 /* monster-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "monster-hd.png"; sourceTree = "<group>"; };
 		3F49362A17BB404200CEA623 /* monster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = monster.png; sourceTree = "<group>"; };
 		3F49362D17BB5D4000CEA623 /* Enemy1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enemy1.h; sourceTree = "<group>"; };
@@ -1134,6 +1143,9 @@
 		3F65AD9A17BA2CC300A76255 /* 123 */ = {
 			isa = PBXGroup;
 			children = (
+				324496B317BBCE3100537045 /* Bullet.ccbi */,
+				324496B417BBCE3200537045 /* Bullet.ccb */,
+				324496B517BBCE3200537045 /* none.png */,
 				3F49362917BB404200CEA623 /* monster-hd.png */,
 				3F49362A17BB404200CEA623 /* monster.png */,
 				3F65AEBF17BA2F6B00A76255 /* Enemy1.ccbi */,
@@ -1288,6 +1300,8 @@
 				3F49362E17BB5D4000CEA623 /* Enemy1.m */,
 				3F65AEBC17BA2E6600A76255 /* GameObject.h */,
 				3F65AEBD17BA2E6600A76255 /* GameObject.m */,
+				324496B917BBCE9200537045 /* Bullet.h */,
+				324496BA17BBCE9200537045 /* Bullet.m */,
 			);
 			name = "Game objects";
 			sourceTree = "<group>";
@@ -1461,6 +1475,9 @@
 				3F65AEC817BA2F6B00A76255 /* Loading.ccbi in Resources */,
 				3F49362B17BB404200CEA623 /* monster-hd.png in Resources */,
 				3F49362C17BB404200CEA623 /* monster.png in Resources */,
+				324496B617BBCE3200537045 /* Bullet.ccbi in Resources */,
+				324496B717BBCE3200537045 /* Bullet.ccb in Resources */,
+				324496B817BBCE3200537045 /* none.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1594,6 +1611,7 @@
 				3F65AECE17BA300200A76255 /* Level.m in Sources */,
 				3F65AED117BA304F00A76255 /* Hero.m in Sources */,
 				3F49362F17BB5D4100CEA623 /* Enemy1.m in Sources */,
+				324496BB17BBCE9200537045 /* Bullet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

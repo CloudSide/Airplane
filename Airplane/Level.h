@@ -28,5 +28,6 @@
 {
     Hero* dragon;
     NSMutableArray *monsters;
+    NSMutableArray *bullets;
 }
 @end

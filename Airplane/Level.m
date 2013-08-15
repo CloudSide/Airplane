@@ -40,6 +40,9 @@
         
         [self schedule:@selector(gameLogic:) interval:0.6];
         [self schedule:@selector(shooting) interval:0.2];
+        
+        monsters = [[NSMutableArray alloc] init];
+        bullets = [[NSMutableArray alloc] init];
     }
     
     return self;
@@ -63,12 +66,15 @@
     
     CCCallBlockN *actionMoveDone = [CCCallBlockN actionWithBlock:^(CCNode *node) {
         
+        [bullets removeObject:node];
         [node removeFromParentAndCleanup:YES];
     }];
     
     [bullet runAction:[CCSequence actions:actionMove, actionMoveDone, nil]];
     
     [[SimpleAudioEngine sharedEngine] playEffect:@"bullet.mp3"];
+    
+    [bullets addObject:bullet];
 }
 
 - (void)addMonster {
@@ -151,6 +157,7 @@
 
     CCNode *child;
     
+    /*
     CCARRAY_FOREACH(self.children, child)
     {
         // Check if the child is a game object
@@ -165,6 +172,23 @@
                 [monsters removeObject:gameObject];
             }
         }
+    }
+     */
+    
+    NSMutableArray *gameObjectsToRemove = [NSMutableArray array];
+    
+    CCARRAY_FOREACH(self.children, child) {
+        
+        if ([child isKindOfClass:[GameObject class]] && child != dragon) {
+            
+            GameObject *gameObject = (GameObject*)child;
+            [gameObjectsToRemove addObject:gameObject];
+        }
+    }
+    
+    for (GameObject *gameObject in gameObjectsToRemove) {
+        
+        [self removeChild:gameObject cleanup:YES];
     }
 
      
@@ -203,6 +227,22 @@
                     [gameObject removeFromParentAndCleanup:YES];
                     
                     [self performSelector:@selector(restartGame) withObject:nil afterDelay:3.0];
+                }
+            }
+            
+            if (gameObject != dragon && ![gameObject isKindOfClass:[Bullet class]]) {
+            
+                for (Bullet *bullet in bullets) {
+                    
+                    if (ccpDistance(gameObject.position, bullet.position) < gameObject.radius + bullet.radius) {
+                        
+                        //[bullets removeObject:bullet];
+                        [bullet removeFromParentAndCleanup:YES];
+                        
+                        //[monsters removeObject:gameObject];
+                        [gameObject removeFromParentAndCleanup:YES];
+                        
+                    }
                 }
             }
         }

@@ -10,4 +10,10 @@
 
 @implementation Bullet
 
+
+- (float)radius {
+    
+    return 3;
+}
+
 @end

@@ -20,7 +20,7 @@
 #define kCJSlowDownFactor 0.995
 #define kCJGravitySpeed 0.1
 #define kCJGameOverSpeed -10
-#define kCJDeltaToRotationFactor 5
+#define kCJDeltaToRotationFactor 0//5
 
 @implementation Hero
 
